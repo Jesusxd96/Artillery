@@ -24,14 +24,21 @@ public class Canon : MonoBehaviour
         }
         if (rotacion > 90) rotacion = 90;
         if (rotacion < 0) rotacion = 0;
-
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (GameManager.disparosPorJuego != 0)//Si los disparos no son 0, puedes disparar
+        {//Se que no es la solucion mas optima, pero funciona de momento sin cambiar mucho el codigo
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                GameObject temp = Instantiate(balaPrefab, puntaCanon.transform.position, transform.rotation);
+                Rigidbody tempRB = temp.GetComponent<Rigidbody>();
+                Vector3 direccionDisparo = transform.rotation.eulerAngles;
+                direccionDisparo.y = 90 - direccionDisparo.x;//Nuevamente, se hace en Z por la rotacion del gameobject
+                tempRB.velocity = direccionDisparo.normalized * GameManager.velocidadBala;
+                GameManager.disparosPorJuego -= 1;
+            }
+        }
+        else
         {
-            GameObject temp = Instantiate(balaPrefab, puntaCanon.transform.position, transform.rotation);
-            Rigidbody tempRB = temp.GetComponent<Rigidbody>();
-            Vector3 direccionDisparo = transform.rotation.eulerAngles;
-            direccionDisparo.y = 90 - direccionDisparo.x;//Nuevamente, se hace en Z por la rotacion del gameobject
-            tempRB.velocity = direccionDisparo.normalized * GameManager.velocidadBala;
+            Debug.Log("F, te quedaste sin disparos");
         }
     }
 }
