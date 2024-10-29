@@ -24,7 +24,7 @@ public class Canon : MonoBehaviour
         }
         if (rotacion > 90) rotacion = 90;
         if (rotacion < 0) rotacion = 0;
-        if (GameManager.disparosPorJuego != 0)//Si los disparos no son 0, puedes disparar
+        if (GameManager.disparosRestantes != 0)//Si los disparos no son 0, puedes disparar
         {//Se que no es la solucion mas optima, pero funciona de momento sin cambiar mucho el codigo
             if (Input.GetKeyDown(KeyCode.Space))
             {
@@ -33,7 +33,7 @@ public class Canon : MonoBehaviour
                 Vector3 direccionDisparo = transform.rotation.eulerAngles;
                 direccionDisparo.y = 90 - direccionDisparo.x;//Nuevamente, se hace en Z por la rotacion del gameobject
                 tempRB.velocity = direccionDisparo.normalized * GameManager.velocidadBala;
-                GameManager.disparosPorJuego -= 1;
+                GameManager.disparosRestantes -= 1;
             }
         }
         else

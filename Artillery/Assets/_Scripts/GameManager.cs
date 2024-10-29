@@ -6,8 +6,18 @@ public class GameManager : MonoBehaviour
 {
     // Start is called before the first frame update
     public static GameManager SingletonGameManager;
-    public static int velocidadBala = 30;
-    public static int disparosPorJuego = 10;
+    private static int _velocidadBala = 30;
+    public static int velocidadBala
+    {//Intento de getter
+        get => _velocidadBala;
+        //set => _velocidadBala = 30;
+    }
+    private static int _disparosPorJuego = 10;
+    public static int disparosRestantes
+    {//Intento de setter y getter
+        get => _disparosPorJuego;
+        set => _disparosPorJuego = value;
+    }
     public static float velocidadRotacion = 1;
 
     private void Awake()
