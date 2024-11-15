@@ -228,6 +228,7 @@ GameObject:
   m_Component:
   - component: {fileID: 174125902}
   - component: {fileID: 174125901}
+  - component: {fileID: 174125903}
   m_Layer: 0
   m_Name: Rastro
   m_TagString: Untagged
@@ -254,7 +255,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: c995ade635b7888419b6fa452126356b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -285,14 +286,23 @@ LineRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0
-        value: 0.33333397
-        inSlope: 0
-        outSlope: 0
+        time: 0.1912511
+        value: 0.45833695
+        inSlope: -0.33889574
+        outSlope: -0.33889574
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
-        outWeight: 0.33333334
+        outWeight: 0.39130577
+      - serializedVersion: 3
+        time: 0.81967866
+        value: 0.13889056
+        inSlope: -0.17172728
+        outSlope: -0.17172728
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.59677416
+        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -347,6 +357,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &174125903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 174125900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5af1aeae24d4545408ede69c6494a305, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanciaMinimaEntrePuntos: 0.1
 --- !u!1 &219683293
 GameObject:
   m_ObjectHideFlags: 0
