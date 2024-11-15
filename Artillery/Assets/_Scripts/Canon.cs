@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Canon : MonoBehaviour
 {
+    public static bool bloqueado;//Se podra disparar o esta bloqueado el cannon?
     [SerializeField]private GameObject balaPrefab;
     private GameObject puntaCanon;//Donde se instanciara la bala
     private float rotacion;
@@ -26,14 +27,16 @@ public class Canon : MonoBehaviour
         if (rotacion < 0) rotacion = 0;
         if (GameManager.disparosRestantes != 0)//Si los disparos no son 0, puedes disparar
         {//Se que no es la solucion mas optima, pero funciona de momento sin cambiar mucho el codigo
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space)&&!bloqueado)
             {
                 GameObject temp = Instantiate(balaPrefab, puntaCanon.transform.position, transform.rotation);
                 Rigidbody tempRB = temp.GetComponent<Rigidbody>();
+                SeguirCamara.objetivo = temp;
                 Vector3 direccionDisparo = transform.rotation.eulerAngles;
                 direccionDisparo.y = 90 - direccionDisparo.x;//Nuevamente, se hace en Z por la rotacion del gameobject
                 tempRB.velocity = direccionDisparo.normalized * GameManager.velocidadBala;
                 GameManager.disparosRestantes -= 1;
+                bloqueado = true;
             }
         }
         else
