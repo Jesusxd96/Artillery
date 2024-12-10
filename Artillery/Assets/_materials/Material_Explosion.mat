@@ -8,13 +8,12 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Material_Explosion
-  m_Shader: {fileID: 211, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: EFFECT_BUMP _ALPHAPREMULTIPLY_ON _COLORADDSUBDIFF_ON _EMISSION
-    _NORMALMAP
-  m_LightmapFlags: 0
+  m_Shader: {fileID: 4800000, guid: 0406db5a14f94604a8c57ccfbc9f3b46, type: 3}
+  m_ShaderKeywords: _COLORADDSUBDIFF_ON _DISTORTION_ON _EMISSION _NORMALMAP
+  m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 1
-  m_CustomRenderQueue: 3000
+  m_CustomRenderQueue: 3001
   stringTagMap:
     RenderType: Transparent
   disabledShaderPasses:
@@ -96,13 +95,13 @@ Material:
     - _SoftParticlesFarFadeDistance: 1
     - _SoftParticlesNearFadeDistance: 0
     - _SpecularHighlights: 1
-    - _SrcBlend: 1
+    - _SrcBlend: 5
     - _Surface: 1
     - _UVSec: 0
     - _ZWrite: 0
     m_Colors:
     - _BaseColor: {r: 0.8490566, g: 0.5237538, b: 0.04405483, a: 1}
-    - _BaseColorAddSubDiff: {r: 1, g: 0, b: 0, a: 0}
+    - _BaseColorAddSubDiff: {r: -1, g: 0, b: 0, a: 0}
     - _CameraFadeParams: {r: 0, g: Infinity, b: 0, a: 0}
     - _Color: {r: 1, g: 0.5332766, b: 0.002124689, a: 1}
     - _ColorAddSubDiff: {r: -1, g: 0, b: 0, a: 0}
