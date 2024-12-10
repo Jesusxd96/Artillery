@@ -6,6 +6,7 @@ public class Canon : MonoBehaviour
 {
     public static bool bloqueado;//Se podra disparar o esta bloqueado el cannon?
     [SerializeField]private GameObject balaPrefab;
+    public GameObject ParticulasDisparo;
     private GameObject puntaCanon;//Donde se instanciara la bala
     private float rotacion;
 
@@ -30,10 +31,13 @@ public class Canon : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space)&&!bloqueado)
             {
                 GameObject temp = Instantiate(balaPrefab, puntaCanon.transform.position, transform.rotation);
+                //GameObject Particula = Instantiate(ParticulasDisparo, puntaCanon.transform.position, transform.rotation);
                 Rigidbody tempRB = temp.GetComponent<Rigidbody>();
                 SeguirCamara.objetivo = temp;
                 Vector3 direccionDisparo = transform.rotation.eulerAngles;
                 direccionDisparo.y = 90 - direccionDisparo.x;//Nuevamente, se hace en Z por la rotacion del gameobject
+                Vector2 direccionParticulas = new Vector3(-90 + direccionDisparo.x, 90, 0);
+                GameObject Particula = Instantiate(ParticulasDisparo, puntaCanon.transform.position, Quaternion.Euler(direccionParticulas), transform);
                 tempRB.velocity = direccionDisparo.normalized * GameManager.velocidadBala;
                 GameManager.disparosRestantes -= 1;
                 bloqueado = true;
