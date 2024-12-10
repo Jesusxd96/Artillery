@@ -5,6 +5,10 @@ using UnityEngine;
 public class Canon : MonoBehaviour
 {
     public static bool bloqueado;//Se podra disparar o esta bloqueado el cannon?
+    public AudioClip clipDisparo;
+    private GameObject SonidoDisparo;
+    private AudioSource SourceDisparo;
+
     [SerializeField]private GameObject balaPrefab;
     public GameObject ParticulasDisparo;
     private GameObject puntaCanon;//Donde se instanciara la bala
@@ -14,6 +18,8 @@ public class Canon : MonoBehaviour
     void Start()
     {
         puntaCanon = transform.Find("PuntaCanon").gameObject;
+        SonidoDisparo = GameObject.Find("SonidoDisparo");
+        SourceDisparo = SonidoDisparo.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -39,6 +45,8 @@ public class Canon : MonoBehaviour
                 Vector2 direccionParticulas = new Vector3(-90 + direccionDisparo.x, 90, 0);
                 GameObject Particula = Instantiate(ParticulasDisparo, puntaCanon.transform.position, Quaternion.Euler(direccionParticulas), transform);
                 tempRB.velocity = direccionDisparo.normalized * GameManager.velocidadBala;
+                //SourceDisparo.PlayOneShot(clipDisparo);
+                SourceDisparo.Play();
                 GameManager.disparosRestantes -= 1;
                 bloqueado = true;
             }
