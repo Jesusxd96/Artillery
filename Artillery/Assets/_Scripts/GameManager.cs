@@ -20,6 +20,9 @@ public class GameManager : MonoBehaviour
     }
     public static float velocidadRotacion = 1;
 
+    public GameObject CanvasGanar;
+    public GameObject CanvasPerder;
+
     private void Awake()
     {
         if (SingletonGameManager == null)
@@ -31,6 +34,17 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(disparosRestantes <= 0)
+        {
+            PerderJuego();
+        }
+    }
+    public void GanarJuego()
+    {
+        CanvasGanar.SetActive(true);
+    }
+    public void PerderJuego()
+    {
+        CanvasPerder.SetActive(true);
     }
 }
