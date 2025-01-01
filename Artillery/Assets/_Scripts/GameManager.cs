@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     public static int velocidadBala
     {//Intento de getter
         get => _velocidadBala;
-        //set => _velocidadBala = 30;
+        set => _velocidadBala = value;//Para poder settearle un valor
     }
     private static int _disparosPorJuego = 10;
     public static int disparosRestantes
@@ -29,6 +29,12 @@ public class GameManager : MonoBehaviour
             SingletonGameManager = this;
         else
             Debug.LogError("Ya existe una instancia de esta clase");
+    }
+
+    public void Start()
+    {
+        disparosRestantes = 10;
+        velocidadBala = 30;
     }
 
     // Update is called once per frame
