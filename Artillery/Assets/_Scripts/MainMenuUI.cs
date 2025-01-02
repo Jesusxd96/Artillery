@@ -6,11 +6,13 @@ using UnityEngine.SceneManagement;
 public class MainMenuUI : MonoBehaviour
 {
     /*Canvas a utilizarse en el menu principal*/
+    public GameObject MainMenuCanvas;
     public GameObject OptionsCanvas;
     //GameObject ConfirmationCanvas; //Canvas para confirmar si ya gg el juego o nel pastel.
 
     public void Start()
     {
+        MainMenuCanvas.SetActive(true);
         OptionsCanvas.SetActive(false);
         //ConfirmationCanvas.SetActive(false);
     }
@@ -26,6 +28,13 @@ public class MainMenuUI : MonoBehaviour
     {
         //Muestra el menu de opciones
         OptionsCanvas.SetActive(true);
+        MainMenuCanvas.SetActive(false);
+    }
+    public void ReturnToMenu()
+    {
+        //Muestra el menu de opciones
+        OptionsCanvas.SetActive(false);
+        MainMenuCanvas.SetActive(true);
     }
     public void CloseGame()
     {
