@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainMenuUI : MonoBehaviour
 {
@@ -24,6 +25,14 @@ public class MainMenuUI : MonoBehaviour
         else
             SceneManager.LoadScene(0);//El Main menu siempre sera la Scene 0
     }
+    public void CloseGame()
+    {
+        Application.Quit();
+    }
+    /*------------------EXCLUSIVO MENU DE OPCIONES-------------------------*/
+
+    public PuntajeConfiguracionJugador opciones;
+    public Slider slider;
     public void OptionsMenu()
     {
         //Muestra el menu de opciones
@@ -36,8 +45,5 @@ public class MainMenuUI : MonoBehaviour
         OptionsCanvas.SetActive(false);
         MainMenuCanvas.SetActive(true);
     }
-    public void CloseGame()
-    {
-        Application.Quit();
-    }
+
 }

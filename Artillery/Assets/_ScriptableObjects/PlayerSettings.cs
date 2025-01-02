@@ -13,7 +13,7 @@ public abstract class PlayerSettings : ScriptableObject
     public void Guardar(string NombreArchivo = null)
     {
         var bf = new BinaryFormatter();
-        var file = File.Create(NombreArchivo);
+        var file = File.Create(ObtenerRuta(NombreArchivo));
         var json = JsonUtility.ToJson(this);
 
         bf.Serialize(file, json);
@@ -32,7 +32,7 @@ public abstract class PlayerSettings : ScriptableObject
     public string ObtenerRuta(string nombreArchivo = null)
     {
         var nombreArchivoCompleto = string.IsNullOrEmpty(nombreArchivo) ? name : nombreArchivo;
-        return string.Format("(0)/(1).ebac", Application.persistentDataPath, nombreArchivoCompleto);
+        return string.Format("{0}/{1}.ebac", Application.persistentDataPath, nombreArchivoCompleto);
         //Usando ebac porque es para el curso
     }
 }
