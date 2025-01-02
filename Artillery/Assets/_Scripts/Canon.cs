@@ -11,6 +11,8 @@ public class Canon : MonoBehaviour
 
     [SerializeField]private GameObject balaPrefab;
     public GameObject ParticulasDisparo;
+    public PuntajeConfiguracionJugador velocidadBala;
+
     private GameObject puntaCanon;//Donde se instanciara la bala
     private float rotacion;
 
@@ -76,7 +78,8 @@ public class Canon : MonoBehaviour
             direccionDisparo.y = 90 - direccionDisparo.x;//Nuevamente, se hace en Z por la rotacion del gameobject
             Vector2 direccionParticulas = new Vector3(-90 + direccionDisparo.x, 90, 0);
             GameObject Particula = Instantiate(ParticulasDisparo, puntaCanon.transform.position, Quaternion.Euler(direccionParticulas), transform);
-            tempRB.velocity = direccionDisparo.normalized * GameManager.velocidadBala;
+            tempRB.velocity = direccionDisparo.normalized * velocidadBala.velocidadBala;
+            //tempRB.velocity = direccionDisparo.normalized * GameManager.velocidadBala.velocidadBala;
             //SourceDisparo.PlayOneShot(clipDisparo);
             SourceDisparo.Play();
             GameManager.disparosRestantes -= 1;

@@ -5,6 +5,9 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 
 [CreateAssetMenu(fileName ="PlayerSettings", menuName ="Herramientas/PlayerSettings",order =0)]
+/*
+ * Este solo se creo para que controle la persistencia de los datos y guarde en archivo la informacion.
+ */
 public abstract class PlayerSettings : ScriptableObject
 {
     public void Guardar(string NombreArchivo = null)
@@ -30,5 +33,6 @@ public abstract class PlayerSettings : ScriptableObject
     {
         var nombreArchivoCompleto = string.IsNullOrEmpty(nombreArchivo) ? name : nombreArchivo;
         return string.Format("(0)/(1).ebac", Application.persistentDataPath, nombreArchivoCompleto);
+        //Usando ebac porque es para el curso
     }
 }

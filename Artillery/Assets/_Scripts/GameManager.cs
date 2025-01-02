@@ -6,12 +6,13 @@ public class GameManager : MonoBehaviour
 {
     // Start is called before the first frame update
     public static GameManager SingletonGameManager;
-    private static int _velocidadBala = 30;
-    public static int velocidadBala
+    //public PuntajeConfiguracionJugador velocidadBalas;
+    public PuntajeConfiguracionJugador _velocidadBala;
+    /*public static PuntajeConfiguracionJugador velocidadBala
     {//Intento de getter
         get => _velocidadBala;
         set => _velocidadBala = value;//Para poder settearle un valor
-    }
+    }*/
     private static int _disparosPorJuego = 10;
     public static int disparosRestantes
     {//Intento de setter y getter
@@ -34,7 +35,7 @@ public class GameManager : MonoBehaviour
     public void Start()
     {
         disparosRestantes = 10;
-        velocidadBala = 30;
+        //velocidadBala = 30;
     }
 
     // Update is called once per frame
