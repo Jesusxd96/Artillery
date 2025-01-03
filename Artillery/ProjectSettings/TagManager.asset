@@ -7,7 +7,8 @@ TagManager:
   - Bala
   - Suelo
   - Obstaculo
-  - Enemigo
+  - Objetivo
+  - Explosion
   layers:
   - Default
   - TransparentFX
@@ -15,7 +16,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - UI Background
   - 
   - 
   - 

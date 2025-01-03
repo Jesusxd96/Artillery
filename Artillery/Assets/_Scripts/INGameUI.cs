@@ -7,16 +7,12 @@ using TMPro;
 public class INGameUI : MonoBehaviour
 {
     [SerializeField] private TMP_Text numeroDeBalas;
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private TMP_Text enemigosRestantes;
 
     // Update is called once per frame
     void Update()
     {
+        enemigosRestantes.text = "Objetivos restantes: " + GameManager.enemigosRestantes.ToString();
         numeroDeBalas.text = "Balas restantes: " + GameManager.disparosRestantes.ToString();
         if (GameManager.disparosRestantes <= 0)
         {
