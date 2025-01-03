@@ -70,7 +70,7 @@ public class Canon : MonoBehaviour
 
     private void Disparar(InputAction.CallbackContext context)
     {//Lo de CallbackContext sirve para mandar a llamar al metodo cuando el contexto de disparar se este realizando/llamado
-        if (GameManager.disparosRestantes != 0 && GameManager.isGameWon==false)
+        if ((GameManager.disparosRestantes != 0 && !bloqueado) && GameManager.isGameWon==false)
         {//Si aun quedan disparos y el juego aun no se gana, se puede seguir disparando
             GameObject temp = Instantiate(balaPrefab, puntaCanon.transform.position, transform.rotation);
             //GameObject Particula = Instantiate(ParticulasDisparo, puntaCanon.transform.position, transform.rotation);
