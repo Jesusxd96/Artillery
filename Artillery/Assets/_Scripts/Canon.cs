@@ -48,6 +48,7 @@ public class Canon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        ModificarFuerzaBala();
         rotacion += apuntar.ReadValue<float>() * GameManager.velocidadRotacion;
         //Se le pasa el valor de Apuntar y se cambia la rotacion en base a eso
         if (rotacion<=90 && rotacion >= 0)
@@ -85,5 +86,9 @@ public class Canon : MonoBehaviour
             GameManager.disparosRestantes -= 1;
             bloqueado = true;
         }
+    }
+    private void ModificarFuerzaBala()
+    {
+        velocidadBala.velocidadBala = modificarFuerza.ReadValue<float>();
     }
 }
