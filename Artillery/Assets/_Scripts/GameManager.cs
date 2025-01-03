@@ -13,6 +13,10 @@ public class GameManager : MonoBehaviour
         get => _velocidadBala;
         set => _velocidadBala = value;//Para poder settearle un valor
     }*/
+    
+    public static int enemigosRestantes;//Variable a utilizarse para determinar cuantos enemigos quedan en el juego
+    public static bool isGameWon;
+
     private static int _disparosPorJuego = 10;
     public static int disparosRestantes
     {//Intento de setter y getter
@@ -34,20 +38,32 @@ public class GameManager : MonoBehaviour
 
     public void Start()
     {
+        isGameWon=false;
         disparosRestantes = 10;
+        enemigosRestantes = GameObject.FindGameObjectsWithTag("Objetivo").Length;
+        //Debug.Log("Son " + enemigosRestantes + " Enemigos restantes");
         //velocidadBala = 30;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(disparosRestantes <= 0)
-        {
+        Debug.Log("Son " + enemigosRestantes + " Enemigos restantes");
+        if(disparosRestantes <= 0 && !isGameWon)
+        {//Si no quedan disparos y el juego no se ha ganado
             PerderJuego();
+        }
+    }
+    private void LateUpdate()
+    {
+        if (disparosRestantes > 0 && enemigosRestantes <= 0)
+        {
+            GanarJuego();
         }
     }
     public void GanarJuego()
     {
+        isGameWon = true;
         CanvasGanar.SetActive(true);
     }
     public void PerderJuego()

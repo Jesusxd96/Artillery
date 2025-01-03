@@ -10,7 +10,9 @@ public class Objetivo : MonoBehaviour
     {
         if (other.tag == "Explosion")
         {
-            GameWon.Invoke();
+            GameManager.enemigosRestantes -= 1;//Se le resta un enemigo
+            /*if(GameManager.enemigosRestantes <= 0)
+                GameWon.Invoke();*/
             Destroy(this.gameObject);
         }
     }
