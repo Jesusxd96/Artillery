@@ -156,7 +156,7 @@ public partial class @CanonControls : IInputActionCollection2, IDisposable
                 {
                     ""name"": ""Control"",
                     ""id"": ""d05f27f5-c83a-4838-ab2d-7f6f79b41711"",
-                    ""path"": ""1DAxis(minValue=40,maxValue=20)"",
+                    ""path"": ""1DAxis"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -189,7 +189,7 @@ public partial class @CanonControls : IInputActionCollection2, IDisposable
                 {
                     ""name"": ""Teclado"",
                     ""id"": ""6f0ccd07-9033-48a5-b638-421c079677fa"",
-                    ""path"": ""1DAxis(minValue=40,maxValue=20)"",
+                    ""path"": ""1DAxis"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

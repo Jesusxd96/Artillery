@@ -15,6 +15,7 @@ public class Canon : MonoBehaviour
 
     private GameObject puntaCanon;//Donde se instanciara la bala
     private float rotacion;
+    private float fuerza = 0;
 
     public CanonControls canonControls;
     private InputAction apuntar;
@@ -89,6 +90,13 @@ public class Canon : MonoBehaviour
     }
     private void ModificarFuerzaBala()
     {
-        velocidadBala.velocidadBala = modificarFuerza.ReadValue<float>();
+        //Ya se puede moficar dentro del gameplay la velocidad de la bala como dios manda
+        fuerza += modificarFuerza.ReadValue<float>();
+        if (fuerza <= 40 && fuerza >= 20)
+        {
+            velocidadBala.velocidadBala = fuerza;
+        }
+        if (fuerza > 40) fuerza = 40;
+        if (fuerza < 20) fuerza = 00;
     }
 }
